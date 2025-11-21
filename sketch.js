@@ -13,8 +13,9 @@ function setup() {
   
   
 }
+   
 
-function draw() {
+function draw() { 
   background(220);
   
   let imageX = map(mouseX, 0, 600, 320,280)
