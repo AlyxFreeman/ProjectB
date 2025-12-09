@@ -27,20 +27,20 @@ let apocalypsePhase = "none";   // none, fadeIn, hold, fadeOut
 //earth text 
 let showEarthText = false;      
 let earthTextStartTime = 0;     
-const EARTH_TEXT_DURATION = 5000; 
+const EarthTextDURATION = 5000; 
 
 
 //earth color transition
 let earthColorChange = false;   
 let earthColorStartTime = 0;    
 let earthColorProgress = 0;     
-const EARTH_COLOR_DURATION = 10000; 
+const EarthColourDURATION = 10000; 
 
 
 //blackout timing
-const FADE_IN_SPEED = 3;        
-const HOLD_DURATION = 3000;    
-const FADE_OUT_SPEED = 3;       
+const FadeInSPEED = 3;        
+const HoldDURATION = 3000;    
+const FadeOutSPEED = 3;       
 
 
 //Sun variables
@@ -51,7 +51,7 @@ let sunExpandStartTime = 0;
 let sunBaseSize = 400;
 let sunCurrentSize = 400;
 let sunRedGiantProgress = 0;
-const SUN_EXPAND_DURATION = 10000;
+const SunExpandDURATION = 10000;
 let earthEngulfed = false;
 let sunEngulfFadeAlpha = 0;
 
@@ -335,7 +335,7 @@ function drawSun(dx, dy) {
   //Sun Expand
   if (sunExpanding) {
     let elapsed = millis() - sunExpandStartTime;
-    sunRedGiantProgress = elapsed / SUN_EXPAND_DURATION;
+    sunRedGiantProgress = elapsed / SunExpandDURATION;
     sunRedGiantProgress = constrain(sunRedGiantProgress, 0, 1);
 
     //Expansion
@@ -793,7 +793,7 @@ function Apocalypse() {
   }
 
   if (apocalypsePhase === "fadeIn") {
-    fadeAlpha += FADE_IN_SPEED;
+    fadeAlpha += FadeInSPEED;
     if (fadeAlpha >= 255) {
       fadeAlpha = 255;
       showEndText = true;
@@ -802,11 +802,11 @@ function Apocalypse() {
     }
   } else if (apocalypsePhase === "hold") {
     let elapsed = millis() - apocalypseTime;
-    if (elapsed >= HOLD_DURATION) {
+    if (elapsed >= HoldDURATION) {
       apocalypsePhase = "fadeOut";
     }
    } else if (apocalypsePhase === "fadeOut") {
-    fadeAlpha -= FADE_OUT_SPEED;
+    fadeAlpha -= FadeOutSPEED;
     if (fadeAlpha <= 0) {
       fadeAlpha = 0;
       showEndText = false;
@@ -837,7 +837,7 @@ function Apocalypse() {
     
     if (apocalypsePhase === "hold") {
       let elapsed = millis() - apocalypseTime;
-      let remaining = ceil((HOLD_DURATION - elapsed) / 1000);
+      let remaining = ceil((HoldDURATION - elapsed) / 1000);
       remaining = max(0, remaining);
       
       textSize(28);
@@ -856,7 +856,7 @@ function EarthText() {
   if (!showEarthText) return;
   
   let elapsed = millis() - earthTextStartTime;
-  if (elapsed >= EARTH_TEXT_DURATION) {
+  if (elapsed >= EarthTextDURATION) {
     showEarthText = false;
     return;
   }
@@ -882,7 +882,7 @@ function EarthColor() {
   if (!earthColorChange) return;
   
   let elapsed = millis() - earthColorStartTime;
-  earthColorProgress = elapsed / EARTH_COLOR_DURATION;
+  earthColorProgress = elapsed / EarthColourDURATION;
   earthColorProgress = constrain(earthColorProgress, 0, 1);
   
   if (earthColorProgress >= 1) {
