@@ -139,8 +139,8 @@ function setup() {
   textAlign(CENTER, CENTER);
   textSize(24);
 
-    cosmicBg.loop(); // 使用 loop() 而不是 play()
-  cosmicBg.setVolume(0.3); // 设置音量为 30%
+    cosmicBg.loop(); 
+  cosmicBg.setVolume(0.3); 
 }
 
 
