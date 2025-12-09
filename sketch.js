@@ -1117,7 +1117,7 @@ function drawLaserAttack() {
 //create explosion particles
 function createExplosion(x, y) {
   for (let i = 0; i < 100; i++) {
-    let angle = random(TWO_PI);
+    let angle = random(2 * PI);
     let speed = random(2, 10);
     explosionParticles.push({
       x: x,
