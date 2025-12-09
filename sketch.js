@@ -6,6 +6,7 @@ let showMap = false;
 
 let audioStarted = false
 
+let sunFlash;
 let cosmicBg;
 let sunExpand;
 let alienLaser;
@@ -118,7 +119,7 @@ function preload() {
 
   //AUDIO//
   //sun
-  sunFlash = loadSound("assets/SunFlash.mp3")
+  sunFlash = loadSound("assets/sunFlash.mp3")
   sunExpand = loadSound("assets/SunExpand.mp3")
   //background
   cosmicBg = loadSound("assets/CosmicBg.mp3")
