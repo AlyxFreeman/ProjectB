@@ -121,7 +121,7 @@ function preload() {
   //sun
   
   sunExpand = loadSound("assets/SunExpand.mp3")
-  SunFlash = loadSound("assets/sunclick.mp3")
+  //SunFlash = loadSound("assets/sunclick.mp3")
   //background
   cosmicBg = loadSound("assets/CosmicBg.mp3")
   //alien
@@ -972,8 +972,8 @@ function mousePressed() {
       sunClicks++;
       sunFlashIntensity = 255;
 
-       if (SunFlash && !SunFlash.isPlaying()) {
-    SunFlash.play();
+       //if (SunFlash && !SunFlash.isPlaying()) {
+    //SunFlash.play();
   }
       
       if (sunClicks >= 3 && !sunExpanding) {
@@ -1032,7 +1032,7 @@ function mousePressed() {
       showMap = true;
     }
   }
-}
+
 //Dectect Click on AlienShip
 function isClickOnAlienShip(mx, my) {
   if (centauriClicks < 2 || animT < 1) return false;
